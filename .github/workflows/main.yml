@@ -1,0 +1,18 @@
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+        
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.0.0
+        with: 
+          java-version: 17
+
+      - name: Build
+        run: |
+          ./gradlew build
+      
